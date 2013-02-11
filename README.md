@@ -1,4 +1,4 @@
 movement
 ========
 
-This library class use for tween object in Action Script 3 in one EnterFrame.
+This library use for tween object in Action Script 3 in one EnterFrame event.
