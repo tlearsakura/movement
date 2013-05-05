@@ -53,6 +53,13 @@ package tle7.movement
 			return py;
 		}
 		
+		public function get startX():Number {
+			return fromX;
+		}
+		public function get startY():Number {
+			return fromY;
+		}
+		
 		public function update():void {
 			_angleX += _speedX;
 			radX = _angleX * (Math.PI / 180);

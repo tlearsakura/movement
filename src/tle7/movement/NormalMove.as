@@ -12,7 +12,7 @@ package tle7.movement
 		private var fromY:Number = 0;
 		private var _easeX:Function = Linear.easeNone;
 		private var _easeY:Function = Linear.easeNone;
-		private var _time:Number = 1;
+		private var _time:int = 1;
 		
 		private var curtime:uint = 0;
 		private var factorX:Number;
@@ -71,7 +71,7 @@ package tle7.movement
 		}
 		
 		public function update():void {
-			if(_distance==0) return;
+			if(curtime==_time) return;
 			curtime++;
 			factorX = _easeX(curtime, 0, 1, _time);
 			factorY = _easeY(curtime, 0, 1, _time);
