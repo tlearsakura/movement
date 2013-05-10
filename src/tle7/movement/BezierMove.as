@@ -20,11 +20,16 @@ package tle7.movement
 		private var _time:Number = 1;
 		private var factor:Number;
 		private var _isfinish:Boolean = false;
+		private var _orient:Boolean = false;
+		private var _rotation:Number = 0;
+		private var beforePoint:Point;
 		
 		private var s:Number;
 		private var current:Object;
 		private var next:Object;
 		private var lengthB:uint;
+		private var lx:Number;
+		private var ly:Number;
 		
 		public function BezierMove()
 		{
@@ -58,6 +63,10 @@ package tle7.movement
 			_time = t;
 		}
 		
+		public function set orient(val:Boolean):void {
+			_orient = val;
+		}
+		
 		/////////////////////////////////////////////////////////////////////
 		///////////////////////  getting  up    /////////////////////////////
 		/////////////////////////////////////////////////////////////////////
@@ -72,11 +81,16 @@ package tle7.movement
 			ind = 0;
 			curtime = 0;
 			step = 0;
+			beforePoint = null;
 			_isfinish = false;
 		}
 		
 		public function get isFinish():Boolean {
 			return _isfinish;
+		}
+		
+		public function get rotation():Number {
+			return _rotation;
 		}
 		
 		public function update():void {
@@ -95,6 +109,18 @@ package tle7.movement
 			s = ((step-(ind*_quality))/_quality*100)/100;
 			px = (1 - s) * (1 - s) * current.position.x + (2 - 2 * s) * s * current.control.x + s * s * next.position.x;
 			py = (1 - s) * (1 - s) * current.position.y + (2 - 2 * s) * s * current.control.y + s * s * next.position.y;
+			
+			if(_orient){
+				if(!beforePoint){
+					beforePoint = new Point(px,py);
+				}else {
+					lx = px - beforePoint.x;
+					ly = py - beforePoint.y;
+					beforePoint.x = px;
+					beforePoint.y = py;
+					_rotation = Math.atan2(ly, lx);
+				}
+			}
 		}
 	}
 }

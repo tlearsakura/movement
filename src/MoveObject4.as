@@ -22,6 +22,7 @@ package
 		{
 			super();
 			move = new BezierMove();
+			move.orient = true;
 			move.time = 5*30;
 			move.ease = Back.easeInOut;
 		}
@@ -42,6 +43,7 @@ package
 			move.update();
 			this.x = move.posX;
 			this.y = move.posY;
+			this.rotation = move.rotation * 180 / Math.PI;
 		}
 	}
 }

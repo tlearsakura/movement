@@ -11,9 +11,9 @@ package
 		{
 			shape = new Shape();
 			shape.graphics.beginFill(0);
-			shape.graphics.drawCircle(0,0,20);
+			shape.graphics.drawEllipse(0,0,60,20);
 			shape.graphics.endFill();
-			shape.x = -(10);
+			shape.x = -(30);
 			shape.y = -(10);
 			this.addChild(shape);
 		}
