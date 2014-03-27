@@ -2,11 +2,11 @@ package
 {
 	import tle7.movement.RotateMove;
 
-	public final class MoveObject2 extends MoveObject
+	public final class RotateMoveObject extends MoveObject
 	{
 		private var move:RotateMove;
 		
-		public function MoveObject2()
+		public function RotateMoveObject()
 		{
 			super();
 			move = new RotateMove();

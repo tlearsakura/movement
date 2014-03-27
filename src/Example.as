@@ -12,10 +12,10 @@ package
 		private var ex:Sprite;
 		private var ex_path:String = 'examples.';
 		
-		NormalMoveExample;
+		NormalMoveExample; RotateMoveExample;
 		public function Example()
 		{
-			ex_path += 'NormalMoveExample';
+			ex_path += 'RotateMoveExample';
 			
 			var tmpClass:Class = getDefinitionByName(ex_path) as Class;
 			ex = new tmpClass();
