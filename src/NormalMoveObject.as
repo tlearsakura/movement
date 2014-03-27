@@ -2,18 +2,24 @@ package
 {
 	import tle7.movement.NormalMove;
 	import tle7.movement.easing.Bounce;
+	import tle7.movement.easing.Circ;
+	import tle7.movement.easing.Cubic;
+	import tle7.movement.easing.Elastic;
+	import tle7.movement.easing.Expo;
+	import tle7.movement.easing.Quart;
 	
-	public final class MoveObject1 extends MoveObject
+	public final class NormalMoveObject extends MoveObject
 	{
 		
 		private var move:NormalMove;
 		private var _distance:Number;
 		
-		public function MoveObject1()
+		public function NormalMoveObject()
 		{
 			super();
 			move = new NormalMove();
-			move.easeY = Bounce.easeOut;
+			move.easeX = Elastic.easeInOut;
+			move.easeY = Elastic.easeInOut; /*Bounce.easeOut*/;
 		}
 		
 		public function setTarget(tx:Number,ty:Number,time:Number):void {

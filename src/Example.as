@@ -1,27 +1,27 @@
 package
 {
 	import flash.display.Sprite;
-	import flash.events.Event;
+	import flash.utils.getDefinitionByName;
 	
-	[SWF(width="960", height="640", frameRate="30")]
-	public class Example1 extends Sprite
+	import examples.*;
+	
+	[SWF(width="800", height="600", frameRate="30")]
+	public class Example extends Sprite
 	{
-		private var obj1:MoveObject1;
-		private var obj2:MoveObject2;
-		private var obj3:MoveObject3;
-		private var obj4:MoveObject4;
 		
-		private var allobj:Vector.<MoveObject> = new Vector.<MoveObject>;
+		private var ex:Sprite;
+		private var ex_path:String = 'examples.';
 		
-		public function Example1()
+		NormalMoveExample;
+		public function Example()
 		{
-			obj1 = new MoveObject1();
-			obj1.x = 50;
-			obj1.y = 50;
-			obj1.setTarget(700,500,2*30);
-			allobj[allobj.length] = obj1;
-			this.addChild(obj1);
+			ex_path += 'NormalMoveExample';
 			
+			var tmpClass:Class = getDefinitionByName(ex_path) as Class;
+			ex = new tmpClass();
+			this.addChild(ex);
+			
+			/*
 			obj2 = new MoveObject2();
 			obj2.x = 800;
 			obj2.y = 600;
@@ -44,16 +44,16 @@ package
 			allobj[allobj.length] = obj4;
 			this.addChild(obj4);
 			
-			this.addEventListener(Event.ENTER_FRAME, loop);
+			this.addEventListener(Event.ENTER_FRAME, loop);*/
 		}
 		
-		protected function loop(e:Event):void
+		/*protected function loop(e:Event):void
 		{
 			for(var i:uint; i<allobj.length; i++){
 				allobj[i].update();
-				if(allobj[i] is MoveObject1){
-					if(MoveObject1(allobj[i]).distance == 0){
-						MoveObject1(allobj[i]).setStart(50,50);
+				if(allobj[i] is NormalMoveObject){
+					if(NormalMoveObject(allobj[i]).distance == 0){
+						NormalMoveObject(allobj[i]).setStart(50,50);
 					}
 				}else if(allobj[i] is MoveObject4){
 					if(MoveObject4(allobj[i]).isFinish){
@@ -61,6 +61,6 @@ package
 					}
 				}
 			}
-		}
+		}*/
 	}
 }
