@@ -2,11 +2,11 @@ package
 {
 	import tle7.movement.OrbitMove;
 
-	public final class MoveObject3 extends MoveObject
+	public final class OrbitMoveObject extends MoveObject
 	{
 		private var move:OrbitMove;
 		
-		public function MoveObject3()
+		public function OrbitMoveObject()
 		{
 			super();
 			move = new OrbitMove();

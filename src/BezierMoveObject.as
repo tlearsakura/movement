@@ -14,11 +14,11 @@ package
 	import tle7.movement.easing.Sine;
 	import tle7.movement.easing.Strong;
 
-	public final class MoveObject4 extends MoveObject
+	public final class BezierMoveObject extends MoveObject
 	{
 		private var move:BezierMove;
 		
-		public function MoveObject4()
+		public function BezierMoveObject()
 		{
 			super();
 			move = new BezierMove();
