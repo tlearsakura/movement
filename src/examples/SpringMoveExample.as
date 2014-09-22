@@ -3,11 +3,11 @@ package examples
 	import flash.display.Sprite;
 	import flash.events.Event;
 	
-	public class BezierMoveExample extends Sprite
+	public final class SpringMoveExample extends Sprite
 	{
-		private var allobj:Vector.<BezierMoveObject> = new Vector.<BezierMoveObject>;
+		private var allobj:Vector.<SpringMoveObject> = new Vector.<SpringMoveObject>;
 		
-		public function BezierMoveExample()
+		public function SpringMoveExample()
 		{
 			this.addEventListener(Event.ADDED_TO_STAGE, onInit);
 		}
@@ -15,12 +15,12 @@ package examples
 		protected function onInit(e:Event):void {
 			this.removeEventListener(Event.ADDED_TO_STAGE, onInit);
 			
-			var obj:BezierMoveObject;
+			var obj:SpringMoveObject;
 			//for(var i:int=0; i<5; i++){
-				obj = new BezierMoveObject();
-				obj.x = stage.stageWidth * .9;
-				obj.y = 300;
-				obj.setCurve([[obj.x,obj.y],[600,600],[450,200],[300,0],[100,300]]);
+				obj = new SpringMoveObject();
+				obj.x = Math.random() * stage.stageWidth;
+				obj.y = Math.random() * stage.stageHeight;
+				obj.setStart(obj.x,obj.y);
 				allobj[allobj.length] = obj;
 				this.addChild(obj);
 			//}
@@ -30,8 +30,8 @@ package examples
 		
 		protected function loop(e:Event):void {
 			for(var i:uint; i<allobj.length; i++){
+				allobj[i].setTarget(mouseX,mouseY);
 				allobj[i].update();
-				if(allobj[i].isFinish) allobj[i].reStart();
 			}
 		}
 	}

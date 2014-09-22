@@ -2,8 +2,6 @@ package tle7.movement
 {
 	import flash.geom.Point;
 	
-	import tle7.movement.easing.Back;
-	import tle7.movement.easing.Elastic;
 	import tle7.movement.easing.Linear;
 
 	public class BezierMove
